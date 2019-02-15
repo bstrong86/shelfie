@@ -4,7 +4,7 @@ import './App.css';
 import Dashboard from './component/Dashboard';
 import Form from './component/Form'
 import Header from './component/Header'
-import Product from './component/Product'
+import Product from './component/Product';
 
 class App extends Component {
   constructor(){
@@ -13,16 +13,28 @@ class App extends Component {
     this.state= {
       inventoryList: []
     }
+    
   }
 
   componentDidMount() {
     axios.get('/api/inventory').then(res => {
-      console.log(res.data)
+      // console.log(res.data)
       this.setState({
         inventoryList: res.data
       })
     })
   }
+
+  getProductList(){
+    axios.get('/api/inventory').then(res => {
+      this.setState({
+        inventoryList: res.data
+      })
+    })
+  }
+
+
+
   render() {
     return (
       <div className="App">
@@ -30,7 +42,9 @@ class App extends Component {
             inventoryList={this.state.inventoryList}
           
           />
-          <Form />
+          <Form 
+            getProductList={this.getProductList}  
+          />
           <Header />
           <Product />
       </div>
