@@ -10,6 +10,13 @@ class Form extends Component {
             input2:'',
             input3:''
         }
+
+        this.handleInput1=this.handleInput1.bind(this)
+        this.handleInput2=this.handleInput2.bind(this)
+        this.handleInput3=this.handleInput3.bind(this)
+        this.handleCancelButton=this.handleCancelButton.bind(this)
+        this.addProduct=this.addProduct.bind(this)
+        
     }
 
     
@@ -61,9 +68,9 @@ class Form extends Component {
        
         return (
             <div>
-                <input onChange={e => this.handleInput1(e.target.value)}/>
-                <input onChange={e => this.handleInput2(e.target.value)}/>
-                <input onChange={e => this.handleInput3(e.target.value)}/>
+                <input type="text" onChange={e => this.handleInput1(e.target.value)}/>
+                <input type="text" onChange={e => this.handleInput2(e.target.value)}/>
+                <input type="text" onChange={e => this.handleInput3(e.target.value)}/>
                 <button onClick={() => this.handleCancelButton()}>Cancel</button>
                 <button onClick={() => this.addProduct()}>Add to Inventory</button>
             </div>

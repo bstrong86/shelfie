@@ -3,7 +3,7 @@ import Product from './Product'
 
 class Dashboard extends Component {
     constructor(props) {
-        console.log(props)
+        // console.log(props)
         super(props);
     }
 

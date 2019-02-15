@@ -18,32 +18,39 @@ class App extends Component {
 
   componentDidMount() {
     axios.get('/api/inventory').then(res => {
+
+      
       // console.log(res.data)
       this.setState({
         inventoryList: res.data
       })
     })
   }
+  
 
-  getProductList(){
-    axios.get('/api/inventory').then(res => {
-      this.setState({
-        inventoryList: res.data
-      })
-    })
-  }
+  // getProductList(){
+  //   axios.get('/api/inventory').then(res => {
+  //     console.log(res.data)
+  //     this.setState({
+  //       inventoryList: res.data
+  //     })
+  //   })
 
+  // }
 
 
   render() {
+console.log(this.state.inventoryList)
+
     return (
       <div className="App">
+      
           <Dashboard 
             inventoryList={this.state.inventoryList}
           
           />
           <Form 
-            getProductList={this.getProductList}  
+            getProductList={this.componentDidMount}  
           />
           <Header />
           <Product />
